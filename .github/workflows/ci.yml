@@ -1,0 +1,33 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Generate Playwright report
+      run: |
+        mkdir -p playwright-report
+        cp -r html-report/* playwright-report/
+      
+    - name: Upload Playwright report
+      uses: actions/upload-artifact@v2
+      with:
+        name: playwright-report
+        path: playwright-report
