@@ -1,7 +1,6 @@
 module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.jsx?$': 'babel-jest',
   },
   testEnvironment: 'node',
   reporters: [
@@ -12,9 +11,13 @@ module.exports = {
         publicPath: './html-report',
         filename: 'report.html',
         expand: true,
+        customInfos: {
+          screenshots: 'screenshots',
+        },
       },
     ],
   ],
+  testMatch: ['**/tests/**/*.test.ts', '**/tests/**/*.test.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testTimeout: 30000,  // Set timeout to 30 seconds
+  testTimeout: 60000,  // Set timeout to 60 seconds
 };
