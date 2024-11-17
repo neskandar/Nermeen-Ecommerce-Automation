@@ -19,5 +19,5 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.test.ts', '**/tests/**/*.test.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testTimeout: 60000,  // Set timeout to 60 seconds
+  testTimeout: 60000, // Set timeout to 60 seconds
 };
